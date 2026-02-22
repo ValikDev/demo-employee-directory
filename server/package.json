@@ -1,0 +1,25 @@
+{
+  "name": "Employee Directory / Server",
+  "version": "1.0.0",
+  "private": true,
+  "author": "ValikDev <ValikDev@users.noreply.github.com>",
+  "license": "ISC",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/supertest": "^6.0.3",
+    "jest": "^30.2.0",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.6",
+    "tsx": "^4.19.0"
+  }
+}

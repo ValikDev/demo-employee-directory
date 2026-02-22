@@ -1,12 +1,30 @@
 {
-  "name": "assignment",
+  "name": "Employee Directory",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "private": true,
+  "author": "ValikDev <ValikDev@users.noreply.github.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ValikDev/demo-employee-directory.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "homepage": "https://github.com/ValikDev/demo-employee-directory",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "start:server": "npm -w server run dev",
+    "test": "npm -w server run test",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.9.0",
+    "eslint": "^10.0.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.0"
+  }
 }
