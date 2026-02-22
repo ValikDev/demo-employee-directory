@@ -1,12 +1,27 @@
-import type { Employee } from '../types.js';
+import type { Employee } from '../../types.js';
+import { EmployeeTableSkeleton } from './EmployeeTableSkeleton.js';
 
 type EmployeeTableProps = {
   employees: Employee[];
+  loading: boolean;
+  error: string | null;
 };
 
 const COLUMNS = ['First Name', 'Last Name', 'Role', 'Country', 'Department'];
 
-export function EmployeeTable({ employees }: EmployeeTableProps) {
+export function EmployeeTable({ employees, loading, error }: EmployeeTableProps) {
+  if (loading) {
+    return <EmployeeTableSkeleton />;
+  }
+
+  if (error) {
+    return (
+      <div className="p-4 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg">
+        {error}
+      </div>
+    );
+  }
+
   if (employees.length === 0) {
     return (
       <p className="text-gray-500 text-sm p-4">No employees found.</p>
