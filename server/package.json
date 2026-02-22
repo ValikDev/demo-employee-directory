@@ -5,12 +5,14 @@
   "author": "ValikDev <ValikDev@users.noreply.github.com>",
   "license": "ISC",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "node --watch --import=tsx src/index.ts",
     "test": "jest"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "drizzle-orm": "^0.45.1",
+    "express": "^4.21.2",
+    "mysql2": "^3.17.4"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
