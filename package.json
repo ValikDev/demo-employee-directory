@@ -1,0 +1,34 @@
+{
+  "name": "employee-directory",
+  "version": "1.0.0",
+  "private": true,
+  "author": "ValikDev <ValikDev@users.noreply.github.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ValikDev/demo-employee-directory.git"
+  },
+  "homepage": "https://github.com/ValikDev/demo-employee-directory",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "start:server": "npm -w server run dev",
+    "start:client": "npm -w client run dev",
+    "test": "npm -w server run test && npm -w client run test",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "db:start": "docker build -t assignment_db . && docker run --name assignment_db -e MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-password} -e MYSQL_DATABASE=${DB_NAME:-assignment_db} -p 3306:3306 -d assignment_db:latest",
+    "db:stop": "docker stop assignment_db && docker rm assignment_db"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.9.0",
+    "eslint": "^10.0.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.0"
+  }
+}
