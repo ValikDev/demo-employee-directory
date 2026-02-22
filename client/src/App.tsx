@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { EmployeeTable } from './components/EmployeeTable.js';
 import { Filters } from './components/Filters.js';
-import type { ActiveFilters, Employee, FilterOptions } from './types.js';
+import type { ActiveFilters, Employee } from './types.js';
 
 const EMPTY_FILTERS: ActiveFilters = { roles: [], countries: [], departments: [] };
-const EMPTY_OPTIONS: FilterOptions = { roles: [], countries: [], departments: [] };
 
 function buildQuery(filters: ActiveFilters): string {
   const params = new URLSearchParams();
@@ -28,23 +27,9 @@ function buildQuery(filters: ActiveFilters): string {
 
 export function App() {
   const [employees, setEmployees] = useState<Employee[]>([]);
-  const [filterOptions, setFilterOptions] = useState<FilterOptions>(EMPTY_OPTIONS);
   const [activeFilters, setActiveFilters] = useState<ActiveFilters>(EMPTY_FILTERS);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('/api/v1/filters')
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.statusText);
-        }
-
-        return res.json();
-      })
-      .then(setFilterOptions)
-      .catch(() => setError('Failed to load filter options'));
-  }, []);
 
   const fetchEmployees = useCallback(async (filters: ActiveFilters) => {
     setLoading(true);
@@ -83,7 +68,6 @@ export function App() {
 
       <div className="flex flex-col md:flex-row gap-6">
         <Filters
-          options={filterOptions}
           active={activeFilters}
           onChange={setActiveFilters}
         />
