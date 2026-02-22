@@ -39,9 +39,10 @@ Override defaults via env vars: `DB_USER`, `DB_PASSWORD`, `DB_NAME`.
 
 ```bash
 npm run start:server
+npm run start:client
 ```
 
-Use curl for manual testing
+Use curl for manual API testing
 ```bash
 curl "http://localhost:4000/api/v1/filters" | jq
 curl "http://localhost:4000/api/v1/employees" | jq

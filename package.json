@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "start:server": "npm -w server run dev",
+    "start:client": "npm -w client run dev",
     "test": "npm -w server run test",
     "lint": "eslint .",
     "db:start": "docker build -t assignment_db . && docker run --name assignment_db -e MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-password} -e MYSQL_DATABASE=${DB_NAME:-assignment_db} -p 3306:3306 -d assignment_db:latest",
